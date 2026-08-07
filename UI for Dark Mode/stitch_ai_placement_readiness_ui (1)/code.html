@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Action Roadmap | PCAS Sentinel</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#3d2f00",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "primary-container": "#312e81",
+                    "inverse-surface": "#f8f9ff",
+                    "on-surface-variant": "#c7c4d8",
+                    "surface-container-highest": "#334155",
+                    "tertiary": "#ffb95f",
+                    "on-tertiary": "#3e2700",
+                    "surface-container-low": "#1e293b",
+                    "on-secondary-fixed-variant": "#6bff8f",
+                    "on-tertiary-fixed-variant": "#ffddb8",
+                    "secondary-container": "#005321",
+                    "surface-bright": "#1e293b",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#0f172a",
+                    "on-primary-fixed-variant": "#e2dfff",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-tertiary-container": "#ffd4a4",
+                    "on-secondary-container": "#6bff8f",
+                    "surface-container": "#1e293b",
+                    "surface-container-high": "#334155",
+                    "primary": "#6366f1",
+                    "surface-tint": "#818cf8",
+                    "surface-variant": "#464555",
+                    "inverse-primary": "#3525cd",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#e2dfff",
+                    "secondary-fixed": "#6bff8f",
+                    "on-secondary-fixed": "#002109",
+                    "background": "#020617",
+                    "outline-variant": "#464555",
+                    "secondary": "#4ae176",
+                    "on-primary-container": "#e0e7ff",
+                    "error": "#ffb4ab",
+                    "on-surface": "#f1f5f9",
+                    "outline": "#94a3b8",
+                    "surface": "#020617",
+                    "on-tertiary-fixed": "#ffddb8",
+                    "secondary-fixed-dim": "#4ae176",
+                    "inverse-on-surface": "#0b1c30",
+                    "on-background": "#f1f5f9",
+                    "tertiary-container": "#653e00",
+                    "surface-dim": "#0f172a",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed": "#000000",
+                    "on-secondary": "#003915"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f1f5f9; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        
+        .glass-card { 
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+        .glass-card:hover {
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.1);
+        }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-pill {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-border-primary {
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary selection:text-white">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-4 top-4 bottom-4 w-64 rounded-3xl glass-nav flex flex-col p-4 z-40">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">layers</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-indigo-400 font-headline leading-tight">PCAS Sentinel</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Intelligent Layer</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Home -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-400 hover:bg-white/5 transition-all scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-medium">Home</span>
+</a>
+<!-- Skill Profile -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-400 hover:bg-white/5 transition-all scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-medium">Skill Profile</span>
+</a>
+<!-- Analytics -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-400 hover:bg-white/5 transition-all scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-medium">Analytics</span>
+</a>
+<!-- Roadmap (ACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-indigo-600/10 text-indigo-400 border border-indigo-500/20 shadow-[0_0_15px_rgba(99,102,241,0.1)] font-semibold transition-all scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">alt_route</span>
+<span class="font-medium">Roadmap</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-400 hover:bg-white/5 transition-all scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-2 bg-white/5 rounded-2xl border border-white/5">
+<button class="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold text-sm shadow-lg shadow-indigo-500/20 hover:bg-indigo-500 transition-all active:scale-95">
+                Analyze Skills
+            </button>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-0 h-16 flex justify-between items-center ml-72 mr-8 py-4 z-30">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">search</span>
+<input class="w-full glass-pill rounded-full pl-10 pr-4 py-2 focus:ring-2 focus:ring-primary/40 text-sm text-slate-200 placeholder:text-slate-500 outline-none" placeholder="Search roadmap tasks..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-colors">notifications</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer transition-colors">smart_toy</span>
+</div>
+<div class="h-8 w-[1px] bg-white/10"></div>
+<div class="flex items-center gap-3 glass-pill px-3 py-1.5 rounded-full">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="text-sm font-bold text-slate-200">AI Active</span>
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover border-2 border-slate-700 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaBhNBI0jZc2luNjq_cozQNjP7CM9xpQo74d_dJU5I_CHsBwO0E4VjRZctTPc6DQMRf5SwrmJ4_AX55jh7ld7l8uMQzr4vspZue5QTLvD10Vx0kNOxui265o3Wr6IdMGYSGXDsjW7SP9Fr6_jR9MYNAv8nhFKL7mQSm5ccFiIHUkNMu0h3cOUTlag8aEA6klUcsXvFt4iGSGXJYwUL6t9lP0sRrEO9KrB2Ec3LlE65nm9cYH7fjhLjzRYmmc0I3p5RE_9xZsArG6wu"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-72 mr-8 pt-24 pb-12">
+<!-- Header Section -->
+<section class="mb-12 grid grid-cols-12 gap-8 items-end">
+<div class="col-span-12 lg:col-span-7">
+<span class="text-sm font-bold text-primary tracking-[0.2em] uppercase mb-4 block">Personalized Learning Path</span>
+<h2 class="text-6xl font-black font-headline text-slate-50 leading-[1.1] mb-6">Action <br/>Roadmap</h2>
+<p class="text-lg text-slate-400 max-w-lg leading-relaxed">
+                    We've curated a high-velocity sprint based on your recent skill gaps. Focus on these nodes to optimize for your next career milestone.
+                </p>
+</div>
+<div class="col-span-12 lg:col-span-5 glass-card p-8 rounded-[2rem] relative overflow-hidden group transition-all">
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline font-bold text-xl text-slate-200">Overall Progress</h3>
+<span class="text-3xl font-black text-primary drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]">68%</span>
+</div>
+<div class="h-4 w-full bg-slate-800/50 rounded-full overflow-hidden mb-6">
+<div class="h-full bg-gradient-to-r from-indigo-500 to-indigo-400 w-[68%] rounded-full shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+</div>
+<div class="flex gap-4">
+<div class="px-4 py-2 bg-white/5 rounded-xl border border-white/5 backdrop-blur-md">
+<span class="text-[10px] block font-bold text-slate-500 uppercase">Tasks Done</span>
+<span class="text-lg font-bold text-slate-200">12/18</span>
+</div>
+<div class="px-4 py-2 bg-white/5 rounded-xl border border-white/5 backdrop-blur-md">
+<span class="text-[10px] block font-bold text-slate-500 uppercase">Current Streak</span>
+<span class="text-lg font-bold text-slate-200">5 Days</span>
+</div>
+</div>
+</div>
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/30 transition-colors"></div>
+</div>
+</section>
+<!-- Category Tabs -->
+<div class="flex gap-4 mb-10 overflow-x-auto no-scrollbar pb-2">
+<button class="px-8 py-3 bg-primary text-white rounded-full font-bold text-sm shadow-lg shadow-primary/30 whitespace-nowrap hover:scale-105 transition-transform">All Tasks</button>
+<button class="px-8 py-3 glass-pill text-slate-300 hover:bg-white/10 transition-all rounded-full font-bold text-sm whitespace-nowrap">Coding Practice</button>
+<button class="px-8 py-3 glass-pill text-slate-300 hover:bg-white/10 transition-all rounded-full font-bold text-sm whitespace-nowrap">Communication</button>
+<button class="px-8 py-3 glass-pill text-slate-300 hover:bg-white/10 transition-all rounded-full font-bold text-sm whitespace-nowrap">Interview Prep</button>
+</div>
+<!-- Roadmap Timeline -->
+<div class="space-y-12 relative">
+<div class="absolute left-[39px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-slate-800 to-transparent"></div>
+<!-- Stage 1 -->
+<div class="relative pl-24 group">
+<div class="absolute left-0 top-0 w-20 h-20 glass-card rounded-3xl flex items-center justify-center z-10 glow-border-primary">
+<span class="material-symbols-outlined text-primary text-3xl drop-shadow-[0_0_8px_rgba(99,102,241,0.6)]" style="font-variation-settings: 'FILL' 1;">code</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="md:col-span-2 glass-card p-8 rounded-3xl transition-all">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2 inline-block">Coding Practice</span>
+<h4 class="text-2xl font-headline font-extrabold text-slate-100">Algorithm Mastery</h4>
+</div>
+<span class="text-xs font-bold text-slate-400 px-3 py-1 glass-pill rounded-lg">In Progress</span>
+</div>
+<div class="space-y-4">
+<label class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer group/item border border-transparent hover:border-white/10">
+<div class="w-6 h-6 rounded-md border-2 border-primary/30 flex items-center justify-center group-hover/item:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-sm font-black hidden">check</span>
+</div>
+<span class="flex-1 font-medium text-slate-200">Complete 5 LeetCode Mediums (Graphs focus)</span>
+<span class="text-[10px] font-bold text-indigo-400 px-2 py-0.5 glass-pill rounded">High Priority</span>
+</label>
+<label class="flex items-center gap-4 p-4 rounded-2xl bg-green-500/5 border border-green-500/10 transition-all cursor-pointer group/item">
+<div class="w-6 h-6 rounded-md border-2 border-green-500 bg-green-500 flex items-center justify-center shadow-lg shadow-green-500/20">
+<span class="material-symbols-outlined text-slate-900 text-sm font-black">check</span>
+</div>
+<span class="flex-1 font-medium text-slate-400 line-through opacity-50">Review Dynamic Programming patterns</span>
+<span class="text-[10px] font-bold text-green-400 px-2 py-0.5 bg-green-500/10 rounded">Completed</span>
+</label>
+<label class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer group/item border border-transparent hover:border-white/10">
+<div class="w-6 h-6 rounded-md border-2 border-primary/30 flex items-center justify-center group-hover/item:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-sm font-black hidden">check</span>
+</div>
+<span class="flex-1 font-medium text-slate-200">Optimize Time Complexity on previous 3 tasks</span>
+<span class="text-[10px] font-bold text-slate-500 px-2 py-0.5 glass-pill rounded">Pending</span>
+</label>
+</div>
+</div>
+<div class="bg-indigo-600/90 backdrop-blur-md p-8 rounded-3xl shadow-2xl shadow-indigo-600/30 flex flex-col justify-between text-white relative overflow-hidden border border-white/20">
+<div class="relative z-10">
+<span class="text-[10px] font-bold uppercase tracking-widest text-indigo-100/70 mb-2 block">Next Milestone</span>
+<h4 class="text-3xl font-headline font-black leading-tight mb-4">FAANG-Ready Interview</h4>
+<p class="text-sm text-indigo-100/80 leading-relaxed mb-8">Your data shows a 92% readiness for Senior SWE roles at top-tier firms.</p>
+</div>
+<button class="relative z-10 w-full py-4 bg-white text-indigo-600 rounded-2xl font-bold hover:bg-slate-100 transition-all hover:shadow-xl active:scale-95">Start Mock Session</button>
+<div class="absolute -top-20 -right-20 w-48 h-48 bg-white/20 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="relative pl-24 group">
+<div class="absolute left-0 top-0 w-20 h-20 glass-card rounded-3xl flex items-center justify-center z-10 border border-white/10">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-card p-8 rounded-3xl transition-all">
+<div class="mb-6">
+<span class="px-3 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded-full text-[10px] font-bold uppercase tracking-wider mb-2 inline-block">Communication</span>
+<h4 class="text-xl font-headline font-extrabold text-slate-100">Executive Presence</h4>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(99,102,241,0.6)]"></div>
+<span class="text-sm font-medium text-slate-200">Record 1 Mock Interview</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-slate-700"></div>
+<span class="text-sm font-medium text-slate-500">Analyze 3 speaker transcripts</span>
+</li>
+</ul>
+<div class="mt-8 pt-6 border-t border-white/5">
+<div class="flex justify-between items-center text-xs font-bold">
+<span class="text-slate-500 uppercase tracking-tighter">Action Required</span>
+<span class="text-primary animate-pulse">Due Tomorrow</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-2 relative h-[320px] rounded-3xl overflow-hidden group border border-white/10">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" data-alt="modern minimal meeting room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpzuJfW8X-r-3k7jsilyAAwJv3mY8ngu-0Bqwab5uzfYWD8ll-SbtKKKGT9O44QlC4gGTFiuy_soQXNEQlBQOAWSNCoKOTil7zCM0n077qjciRfBLjwsFVML8xattz8T_40Ih5ClKAEZ1bfcxD2HycpmqnsLsalopdH6Qkpogn5zFPJQ57BHXeV2eEDtLU7x-ho5B-JFlvpZEoUlLkvbGmqseDtMr0xjhqBu3urgUW45A1ImLq1TZoaqPjDIea-5I-49uxKvgQI4fQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8 backdrop-blur-[2px]">
+<div class="flex items-center gap-3 mb-3">
+<span class="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[10px] text-slate-100 font-bold uppercase">Interview Prep</span>
+<span class="flex items-center gap-1 text-slate-300 text-xs font-bold">
+<span class="material-symbols-outlined text-sm">schedule</span> 45m
+                                </span>
+</div>
+<h4 class="text-3xl font-headline font-black text-white mb-2">Behavioral Frameworks</h4>
+<p class="text-slate-300 text-sm max-w-sm mb-6">Master the STAR method for system design conflict questions.</p>
+<div class="flex gap-4">
+<button class="px-6 py-2 bg-white text-slate-900 rounded-xl font-bold text-sm hover:scale-105 transition-transform">Resume Lesson</button>
+<button class="px-6 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-xl font-bold text-sm hover:bg-white/20 transition-all">View Materials</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stage 3: Future Nodes -->
+<div class="relative pl-24 opacity-40 grayscale-[0.5]">
+<div class="absolute left-0 top-0 w-20 h-20 bg-slate-900/30 rounded-3xl flex items-center justify-center z-10 border border-dashed border-white/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-slate-600 text-3xl">lock</span>
+</div>
+<div class="bg-white/5 border border-dashed border-white/10 p-8 rounded-3xl backdrop-blur-sm">
+<h4 class="text-xl font-headline font-extrabold mb-2 text-slate-500">Advanced Architecture</h4>
+<p class="text-sm text-slate-600">Locked until 85% Coding Practice completion.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FloatingAIAction (Shared Component) -->
+<div class="fixed bottom-8 right-8 z-50 flex items-center gap-4">
+<div class="hidden md:flex glass-nav p-3 rounded-2xl shadow-2xl items-center gap-3">
+<div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-[0_0_15px_rgba(99,102,241,0.4)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+</div>
+<div>
+<p class="text-xs font-bold text-indigo-400 font-body">AI Assistant</p>
+<p class="text-[10px] text-slate-400">Ready to adjust your path</p>
+</div>
+</div>
+<button class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-2xl shadow-indigo-500/40 hover:scale-105 active:scale-95 transition-all hover:bg-indigo-500 group">
+<span class="material-symbols-outlined text-3xl transition-transform group-hover:rotate-12">psychology_alt</span>
+</button>
+</div>
+</body></html>
