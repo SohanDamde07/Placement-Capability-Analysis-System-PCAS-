@@ -3,8 +3,13 @@ const User = require('../models/User');
 
 const protect = async (req, res, next) => {
   let token;
+  // Primary: Authorization: Bearer <token>
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
     token = req.headers.authorization.split(' ')[1];
+  }
+  // Fallback: ?token=<token> (for browser-native file downloads via window.open)
+  if (!token && req.query.token) {
+    token = req.query.token;
   }
 
   if (!token) return res.status(401).json({ success: false, message: 'Not authenticated' });
@@ -20,4 +25,18 @@ const protect = async (req, res, next) => {
   }
 };
 
+const authorizeRole = (...roles) => {
+  return (req, res, next) => {
+    if (!req.user || !roles.includes(req.user.role)) {
+      return res.status(403).json({
+        success: false,
+        message: `Forbidden: Access restricted to ${roles.join(', ')}`,
+      });
+    }
+    next();
+  };
+};
+
 module.exports = protect;
+module.exports.protect = protect;
+module.exports.authorizeRole = authorizeRole;
