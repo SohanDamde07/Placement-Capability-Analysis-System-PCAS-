@@ -126,10 +126,38 @@ router.post('/', protect, async (req, res) => {
   try {
     const data = { ...req.body, userId: req.user.id };
     
-    // Process data natively
-    const { score, breakdown } = calculatePRS(data);
-    const { weakAreas, insights } = analyzeSkillGaps(breakdown);
-    const level = classifyLevel(score);
+    // Default native calculations as fallback
+    let { score, breakdown } = calculatePRS(data);
+    let { weakAreas, insights } = analyzeSkillGaps(breakdown);
+    let level = classifyLevel(score);
+
+    // Call ML service running the best placement model (StandardScaler + Logistic Regression)
+    try {
+      const axios = require('axios');
+      const ML_URL = process.env.ML_SERVICE_URL || 'http://localhost:8000';
+      const mlRes = await axios.post(`${ML_URL}/predict`, {
+        cgpa:            data.cgpa || 7.0,
+        internshipCount: data.internshipCount || 0,
+        projectCount:    data.projectCount || 1,
+        projectLevel:    data.projectLevel || 1,
+        numSkills:       data.skills?.length || 0,
+        commScore:       data.commScore || 5,
+      }, { timeout: 4000 });
+
+      if (mlRes.data && mlRes.data.prsScore != null) {
+        score = mlRes.data.prsScore;
+        level = mlRes.data.classification || level;
+        if (mlRes.data.insights && mlRes.data.insights.length > 0) {
+          insights = mlRes.data.insights;
+        }
+        if (mlRes.data.featureScores) {
+          breakdown = { ...breakdown, ...mlRes.data.featureScores };
+        }
+      }
+    } catch (mlErr) {
+      console.warn('[Analyze] ML service bypassed or unavailable:', mlErr.message);
+    }
+
     const roadmapTasks = generateRoadmap(weakAreas);
     
     // Save to Profile DB so Dashboard & PRSAnalysis can dynamically read it

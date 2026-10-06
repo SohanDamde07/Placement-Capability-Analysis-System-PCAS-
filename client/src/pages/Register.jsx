@@ -13,7 +13,23 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    const result = await register(form);
+
+    // Name validation: Must contain letters and spaces only, min 2 chars
+    const trimmedName = form.name.trim();
+    if (!/^[a-zA-Z\s.'-]{2,50}$/.test(trimmedName) || !/[a-zA-Z]{2,}/.test(trimmedName)) {
+      setError('Please enter a valid full name containing alphabetic letters only (e.g. Rahul Sharma).');
+      return;
+    }
+
+    // Email validation: standard RFC email pattern starting with letter/number
+    const trimmedEmail = form.email.trim();
+    const emailRegex = /^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      setError('Please enter a valid email address (e.g. rahul@college.edu). Special characters like "!@#" cannot be used.');
+      return;
+    }
+
+    const result = await register({ ...form, name: trimmedName, email: trimmedEmail.toLowerCase() });
     if (result.success) navigate('/profile');
     else setError(result.message);
   };
