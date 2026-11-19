@@ -34,7 +34,7 @@ export default function Sidebar() {
           </span>
         </div>
         <div>
-          <h2 className="text-xl font-bold text-indigo-700 font-headline leading-tight">PCAS</h2>
+          <h2 className="text-xl font-bold text-indigo-700 font-headline leading-tight">Placify</h2>
           <p className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">
             {isAdmin ? 'Admin Console' : 'Student Portal'}
           </p>

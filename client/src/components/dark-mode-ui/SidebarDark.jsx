@@ -36,7 +36,7 @@ export default function SidebarDark() {
           </span>
         </div>
         <div>
-          <h2 className="text-xl font-bold text-primary font-headline leading-tight">PCAS Sentinel</h2>
+          <h2 className="text-xl font-bold text-primary font-headline leading-tight">Placify</h2>
           <p className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold opacity-80">
             {isAdmin ? 'Admin Console' : 'Intelligent Layer'}
           </p>

@@ -30,7 +30,7 @@ export default function Login() {
             <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm">
               <span className="material-symbols-outlined text-primary font-bold">psychology</span>
             </div>
-            <span className="text-2xl font-black tracking-tight text-white font-headline">PCAS</span>
+            <span className="text-2xl font-black tracking-tight text-white font-headline">Placify</span>
           </div>
           <div className="max-w-md">
             <h1 className="text-5xl font-extrabold text-white leading-tight mb-6 font-headline">
@@ -49,7 +49,7 @@ export default function Login() {
                 </div>
               ))}
             </div>
-            <p className="text-white text-sm font-medium">Joined by 12,000+ students & mentors</p>
+            <p className="text-white text-sm font-medium">For students & mentors</p>
           </div>
         </div>
       </section>
@@ -134,14 +134,7 @@ export default function Login() {
       </section>
 
       {/* Floating AI button */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <div className="bg-white/80 backdrop-blur-xl p-4 rounded-full shadow-2xl shadow-indigo-500/20 flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white">
-            <span className="material-symbols-outlined">chat_bubble</span>
-          </div>
-          <span className="text-on-surface font-semibold pr-2 text-sm">AI Assistant</span>
-        </div>
-      </div>
+    
     </div>
   );
 }

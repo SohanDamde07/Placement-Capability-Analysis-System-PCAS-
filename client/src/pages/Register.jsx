@@ -44,7 +44,7 @@ export default function Register() {
             <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm">
               <span className="material-symbols-outlined text-primary">psychology</span>
             </div>
-            <span className="text-2xl font-black tracking-tight text-white font-headline">PCAS</span>
+            <span className="text-2xl font-black tracking-tight text-white font-headline">Placify</span>
           </div>
           <div className="max-w-md">
             <h1 className="text-5xl font-extrabold text-white leading-tight mb-6 font-headline">
